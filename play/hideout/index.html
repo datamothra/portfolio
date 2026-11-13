@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hideout</title>
+<style>
+  @font-face { font-family: DrewHandDigits; src: url(assets/DrewHandDigits.otf); }
+  html, body { margin: 0; background: #FFF7F5; }
+  body { font: bold 18px "Helvetica Neue", Helvetica, Arial, sans-serif; color: #C0302A; }
+  canvas { display: block; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: 0 auto; touch-action: manipulation; }
+  p { margin: 0 3.125vw 14px; max-width: 60em; line-height: 1.35; text-transform: lowercase; }
+  p:first-of-type { margin-top: 10px; }
+  .digits { font-family: DrewHandDigits; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1280" height="720"></canvas>
+<p id="teaches"></p>
+<p>Click a unit, then a pink tile to move it, then a red tile to attack. Press e or click the triangle to end your turn. Press 1, 2 or 3 to change the map. Press p for two players. Press h to show heights. Press r to start again.</p>
+<span class="digits" aria-hidden="true" style="position:absolute;left:-99px">0</span>
+<script src="js/rules.js"></script>
+<script src="js/mapfile.js"></script>
+<script src="js/ai.js"></script>
+<script src="maps/maps.js"></script>
+<script src="js/draw.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

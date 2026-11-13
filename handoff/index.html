@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>handoff · drew atz</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>handoff</h1>
+
+<figure class="hero">
+  <video src="../media/handoff/hero.mp4" poster="../media/handoff/hero.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/handoff/hero.jpg" alt="handoff">
+</figure>
+
+<p class="meta">first-person co-op movement puzzles · unity 6, c#, netcode for gameobjects</p>
+
+<h2>what it is</h2>
+<div class="text">
+  <p>Two players run, slide and wall run across blocks over red water.</p>
+  <p>Gold things sense a player: a plate you stand on, a clock you run past, a frame that reads your speed. Dark blue blocks are solid only while the gold things wired to them are on.</p>
+  <p>There are five levels and a measuring room. One person can play both players and swap between them, or two can play online with a code.</p>
+</div>
+
+<p class="links">
+  <a href="../play/handoff/index.html">play it in the browser</a>
+</p>
+
+<div class="text">
+  <p>W A S D move. The mouse looks. Space jumps. Shift slides while you run. Q swaps player.</p>
+</div>
+
+<figure class="figure">
+  <video src="../media/handoff/first-person.mp4" poster="../media/handoff/first-person.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/handoff/first-person.jpg" alt="the same levels as the two players see them. blue on the left, red on the right.">
+  <figcaption>the same levels as the two players see them. blue on the left, red on the right.</figcaption>
+</figure>
+
+<section class="group">
+<h2>1 after you</h2>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/handoff/map-1.png" alt="level 1, drawn from its level file. the lines are the routes the two bots took."></div>
+  <figcaption>level 1, drawn from its level file. the lines are the routes the two bots took.</figcaption>
+</figure>
+
+<div class="text">
+  <p>Two plates and one bridge teach the rule: gold makes blue solid while you stand on it.</p>
+  <p>The third plate opens the door and takes the next bridge away. The player holding it has to let go once their partner is through.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/handoff/level-1a.jpg" alt="red holds the bridge from the far side. blue crosses.">
+    <figcaption>red holds the bridge from the far side. blue crosses.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/handoff/level-1b.jpg" alt="blue stands on the door plate. the bridge beyond the door is gone while they do.">
+    <figcaption>blue stands on the door plate. the bridge beyond the door is gone while they do.</figcaption>
+  </figure>
+</div>
+</section>
+
+<section class="group">
+<h2>2 low bridge</h2>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/handoff/map-2.png" alt="level 2. a slide, a clock, and a gap that needs a slide jump."></div>
+  <figcaption>level 2. a slide, a clock, and a gap that needs a slide jump.</figcaption>
+</figure>
+
+<div class="text">
+  <p>Both players slide under a slab before anything depends on sliding.</p>
+  <p>Then one holds a bridge while the other beats a 3.5 second clock to a slot 24 m away. Running there takes 3 seconds and a runner does not fit under the slot, so the answer is a slide.</p>
+  <p>The level ends on a 6.3 m gap. A running jump is 5.0 m. A slide jump is 6.8 m.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/handoff/level-2a.jpg" alt="the slab is 1.1 m off the floor. the word is painted on it.">
+    <figcaption>the slab is 1.1 m off the floor. the word is painted on it.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/handoff/level-2b.jpg" alt="the run to the slot. 24 m.">
+    <figcaption>the run to the slot. 24 m.</figcaption>
+  </figure>
+</div>
+</section>
+
+<section class="group">
+<h2>3 wall to wall</h2>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/handoff/map-3.png" alt="level 3. glass keeps each player in their own lane."></div>
+  <figcaption>level 3. glass keeps each player in their own lane.</figcaption>
+</figure>
+
+<div class="text">
+  <p>Blue has a wall to run on and red has a gap. Blue's wall run ends at a clock that makes red's stepping blocks solid for 5 seconds. Then the lanes swap jobs, so each player has done both.</p>
+  <p>In the last part each player's clock is for the other one.</p>
+  <p>The first version had a dead end. A player who crossed alone could not help the one left behind, because both clocks were back on the near side. Two more clocks on the far side fixed it. A second bot route plays that case.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/handoff/level-3a.jpg" alt="blue has started the clock. red crosses on the blocks it made solid.">
+    <figcaption>blue has started the clock. red crosses on the blocks it made solid.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/handoff/level-3b.jpg" alt="the last part. both clocks are running.">
+    <figcaption>the last part. both clocks are running.</figcaption>
+  </figure>
+</div>
+</section>
+
+<section class="group">
+<h2>4 speed limit</h2>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/handoff/map-4.png" alt="level 4. speed frames, a hill and a launch pad."></div>
+  <figcaption>level 4. speed frames, a hill and a launch pad.</figcaption>
+</figure>
+
+<div class="text">
+  <p>A gold frame switches on when someone crosses it fast enough. Running is 8 m/s and the first frame wants 10, so it takes a slide.</p>
+  <p>In the middle each player's speed opens the other player's door.</p>
+  <p>The last frame wants 13.5 m/s, which only a slide down the hill reaches. It fires a pad that throws whoever is standing on it across 16 m of water.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/handoff/level-4a.jpg" alt="the frame wants 10 m/s. running is 8.">
+    <figcaption>the frame wants 10 m/s. running is 8.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/handoff/level-4b.jpg" alt="blue at the top of the hill. red on the pad.">
+    <figcaption>blue at the top of the hill. red on the pad.</figcaption>
+  </figure>
+</div>
+</section>
+
+<section class="group">
+<h2>5 handoff</h2>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/handoff/map-5.png" alt="level 5. five hands in a row."></div>
+  <figcaption>level 5. five hands in a row.</figcaption>
+</figure>
+
+<div class="text">
+  <p>A relay. Blue's speed makes red's bridge. Red's clock opens blue's slot. Blue's wall run ends on a plate that holds red's steps. Red's slide down the hill throws blue onto a ledge. Blue holds the stairs for red.</p>
+  <p>Each thing a player does opens the next thing for their partner, so nobody stands still for long.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/handoff/level-5a.jpg" alt="red is across and at the clock. blue waits to slide under the slot.">
+    <figcaption>red is across and at the clock. blue waits to slide under the slot.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/handoff/level-5b.jpg" alt="blue holds the stairs from the ledge. red climbs.">
+    <figcaption>blue holds the stairs from the ledge. red climbs.</figcaption>
+  </figure>
+</div>
+</section>
+
+<h2>the kit</h2>
+<div class="text">
+  <p>Plate: on while someone stands on it. Clock: on for a few seconds after someone runs past. Speed frame: on for a moment when someone crosses it at its speed or faster. Switched block: solid while its sensors say so. Launch pad: throws whoever stands on it when its sensor comes on.</p>
+  <p>Nothing latches. A sensor is on only while it is held or while its clock runs, so a level cannot be left in a state with no way forward.</p>
+  <p>Nothing that carries a player moves. Each player's own machine moves their body, and a moving floor under that jitters over a network. Blocks appear and disappear instead.</p>
+</div>
+
+<h2>measured</h2>
+<table class="facts">
+  <tr><th>run</th><td>8.0 m/s</td></tr>
+  <tr><th>running jump</th><td>5.0 m long, 1.16 m high</td></tr>
+  <tr><th>slide</th><td>starts at 11.2 m/s and lasts 27 m on flat ground</td></tr>
+  <tr><th>slide, then jump</th><td>6.8 m</td></tr>
+  <tr><th>wall run</th><td>16.2 m in 1.7 s</td></tr>
+  <tr><th>the longest jump a bot can make</th><td>8.3 m. gaps that need a partner are 12 m or more</td></tr>
+  <tr><th>slot</th><td>a slide clears 1.1 m. at 1.0 m the body catches the edge</td></tr>
+</table>
+
+<figure class="code">
+  <pre># beat 2: one plate that helps and hurts. p3 opens the door and takes the bridge away.
+plate p3 -4.5 41 -2.5 43 0
+wall -8 -1 47  -1.5 3.5 47.5
+wall 1.5 -1 47  8 3.5 47.5
+block -1.5 0 47  1.5 2.6 47.5 when !p3&amp;!p4
+block -1.5 -0.4 51  1.5 0 63 when !p3
+plate p4 2.5 65 4.5 67 0
+exit -2 0 70  2 3 74</pre>
+  <figcaption>part of level 1&#x27;s file. one line is one thing, in metres. a block is solid while its plates say so.</figcaption>
+</figure>
+
+<h2>how the levels are checked</h2>
+<div class="text">
+  <p>Each level is one text file. The game builds the blockout from it, and the map on this page is drawn from the same file.</p>
+  <p>Every level file ends with a route for each player. Two bots play the routes through the same controls a keyboard uses. If both reach the exit, the level can be solved with the movement as it is now. All five pass, alone on one machine and online between two copies of the game.</p>
+  <p>The numbers above come from a bot run of the measuring room. Changing a movement number and running the bots again shows at once which levels broke.</p>
+</div>
+
+<h2>next</h2>
+<div class="text">
+  <p>Playtests with two players who have not seen it, watching where they stop.</p>
+</div>
+
+<p class="nav">
+  <a href="../index.html">index</a>
+  <a href="../undertow/index.html">next: undertow</a>
+</p>
+</main>
+</body>
+</html>

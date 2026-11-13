@@ -1,0 +1,25 @@
+name the hideout
+teaches The tower reaches the near gate and not the far door, so pink stands inside the gate under its archer and leaves its runner to watch the door.
+
+000000000000
+000022222222
+000020000002
+000020123002
+000000000002
+000020000002
+000020000002
+000020000002
+000022222202
+000000000000
+
+navy fighter 1 3
+navy fighter 1 5
+navy archer 0 4
+navy runner 0 8
+pink fighter 5 5
+pink fighter 6 4
+pink archer 8 3
+pink runner 10 6
+mark 8 4
+choke 4 4
+choke 10 8

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>handoff</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #FFF7F5; overflow: hidden; color: #C0302A;
+               font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  #unity-canvas { width: 100vw; height: 100vh; display: block; background: #FFF7F5; outline: none; }
+  #name { position: absolute; left: 70px; top: 40px; font-weight: 700; font-size: 96px; letter-spacing: -3px; }
+  #bar { position: absolute; left: 74px; top: 170px; height: 4px; width: 0; background: #C0302A; }
+</style>
+</head>
+<body>
+<canvas id="unity-canvas" tabindex="-1"></canvas>
+<div id="name">handoff</div>
+<div id="bar"></div>
+<script>
+  // The game asks the browser to capture the mouse when a level starts. A browser may refuse (straight after
+  // Esc, or when the click was not a real one). Unity treats that refusal as a crash and shows an alert that
+  // freezes the page. It is not a crash: the game runs on, and the next click captures the mouse.
+  function harmless(text) { return /pointer ?lock|exited the lock|WrongDocumentError|NotAllowedError|SecurityError/i.test(String(text)); }
+  window.addEventListener("unhandledrejection", function (e) {
+    if (harmless(e.reason && (e.reason.name + " " + e.reason.message))) { e.preventDefault(); e.stopImmediatePropagation(); }
+  }, true);
+  window.addEventListener("error", function (e) {
+    if (harmless(e.message)) { e.preventDefault(); e.stopImmediatePropagation(); }
+  }, true);
+  var realAlert = window.alert;
+  window.alert = function (text) { if (harmless(text)) { console.warn(text); return; } realAlert(text); };
+</script>
+<script src="Build/web.loader.js"></script>
+<script>
+  createUnityInstance(document.querySelector("#unity-canvas"), {
+    dataUrl: "Build/web.data.unityweb",
+    frameworkUrl: "Build/web.framework.js.unityweb",
+    codeUrl: "Build/web.wasm.unityweb",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "datamothra",
+    productName: "handoff",
+    productVersion: "0.1.0",
+    matchWebGLToCanvasSize: true
+  }, function (p) { document.querySelector("#bar").style.width = (p * 300) + "px"; })
+  .then(function () { document.querySelector("#name").remove(); document.querySelector("#bar").remove(); })
+  .catch(function (m) { document.querySelector("#name").textContent = "handoff could not start"; console.error(m); });
+</script>
+</body>
+</html>

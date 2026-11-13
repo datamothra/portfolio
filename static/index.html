@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>static · drew atz</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>static</h1>
+
+<figure class="hero">
+  <video src="../media/static/hero.mp4" poster="../media/static/hero.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/static/hero.jpg" alt="static">
+</figure>
+
+<p class="meta">first-person, single-player, played by ear · unity 6, c# · a bot that cannot see finishes every level</p>
+
+<h2>what it is</h2>
+<div class="text">
+  <p>The player carries a radio that makes two sounds. A tone points at the next thing they need: a key, then the door it opens, then the way out. Static gets louder as the thing that hunts them gets close.</p>
+  <p>The player walks. There is no jumping and no running. Being caught sends them back to the last checkpoint with their keys.</p>
+  <p>Every sound is made in code. It needs headphones: left and right are the whole game.</p>
+</div>
+
+<h2>the levels</h2>
+<div class="text">
+  <p>Three levels, one idea at a time. Each is one text file, and the maps are drawn from the same files with the routes two bots took.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/static/map-1.png" alt="tone. the tone and nothing else."></div>
+  <figcaption>tone. the tone and nothing else.</figcaption>
+</figure>
+
+<div class="text">
+  <p>34 m, two junctions and one corner. At the first junction the tone is 44 degrees to the right, and that is the one choice the player makes by comparing ears.</p>
+  <p>The corner after it asks nothing. It confirms what the ear already said. Then a branch opens to the right with the tone straight ahead, and the player learns to walk past an opening the tone does not point at.</p>
+  <p>Both dead ends are as long as the fog is deep, so a wrong turn costs four seconds.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/static/map-2.png" alt="hiss. static and nothing else."></div>
+  <figcaption>hiss. static and nothing else.</figcaption>
+</figure>
+
+<div class="text">
+  <p>One hunter walks a ring of corridors. The player starts in a spur the hunter passes and never enters, so the first place they stand is safe.</p>
+  <p>When they reach the ring the static is in the right ear and getting louder. Left is the quiet way, and the hunter is slower, so the static fades as they walk. That is the reward for the right choice.</p>
+  <p>The way out is in the middle, the one place the hunter never goes.</p>
+  <p>The first version had the exit in a spur on the far side. A player who went left never heard the static get loud, so the level did not teach what it claimed. The exit moved to the middle and the hunter's start moved so the first static is always on the right.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/static/map-3.png" alt="both. two keys, two doors, a shortcut that opens from the far side, one hunter."></div>
+  <figcaption>both. two keys, two doors, a shortcut that opens from the far side, one hunter.</figcaption>
+</figure>
+
+<div class="text">
+  <p>The second door is in the wall beside the start, so the player sees the last lock before either key. The first key is a walk with no danger, which repeats level 1.</p>
+  <p>The hunter wakes when the first door opens, so it passes the player at the same moment however long they took to get there. Where the player's route crosses the hunter's round, the tone and the static come from the same side. The tone says go right. The static says not yet.</p>
+  <p>There is a pocket in the wall at that crossing, on the side away from the tone. Stepping into it means choosing safety over the tone.</p>
+  <p>The shortcut opens from the second key's room and leads back to the middle. The level ends six metres from where it started.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/static/shot-4.jpg" alt="the hunter passes. its face is my drawing of a computer.">
+    <figcaption>the hunter passes. its face is my drawing of a computer.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/static/shot-6.jpg" alt="the way out is my drawing of a house.">
+    <figcaption>the way out is my drawing of a house.</figcaption>
+  </figure>
+</div>
+
+<figure class="figure">
+  <video src="../media/static/blind.mp4" poster="../media/static/blind.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/static/blind.jpg" alt="level 3 played by the bot that cannot see.">
+  <figcaption>level 3 played by the bot that cannot see.</figcaption>
+</figure>
+
+<h2>measured</h2>
+<table class="facts">
+  <tr><th>the tone</th><td>half as loud at 8 m. it carries across a whole level</td></tr>
+  <tr><th>the static</th><td>half as loud at 4.7 m, silent past 16 m</td></tr>
+  <tr><th>a wall in the way</th><td>0.6 as loud</td></tr>
+  <tr><th>fog</th><td>starts at 1.5 m, complete at 6.5 m</td></tr>
+  <tr><th>player and hunter</th><td>3.5 m/s and 2.0 m/s</td></tr>
+  <tr><th>level 1</th><td>9.8 s for the bot that can see, 12.8 s for the bot that cannot</td></tr>
+  <tr><th>level 2</th><td>8.8 s and 17.1 s</td></tr>
+  <tr><th>level 3</th><td>34.1 s and 54.5 s. neither was caught</td></tr>
+</table>
+
+<h2>how the levels are checked</h2>
+<div class="text">
+  <p>One bot walks a route written for it, as a reference time. The other cannot see. Each step it is given the tone's level in each ear, the static's level in each ear, and whether it touched a wall. It is not given a position, a map or the time. It finishes all three levels.</p>
+  <p>The game writes the sound it makes to a file, and the left and right balance in that file follows the positions in the bot's trace.</p>
+</div>
+
+<p class="nav">
+  <a href="../index.html">index</a>
+  <a href="../hideout/index.html">next: hideout</a>
+</p>
+</main>
+</body>
+</html>

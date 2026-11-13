@@ -1,0 +1,27 @@
+name the gate
+teaches One gap lets one unit through at a time and the way round is long, so pink stands on both sides of the tile inside the gap and leaves its runner at the far opening.
+
+111111331111
+111111331111
+111111111311
+111111331111
+111111331111
+111111331111
+111111333331
+111111111111
+111111111111
+111111111111
+
+navy fighter 1 1
+navy fighter 1 3
+navy archer 0 2
+navy runner 1 5
+pink fighter 8 1
+pink fighter 8 3
+pink archer 9 4
+pink runner 11 5
+mark 10 0
+choke 6 2
+choke 7 2
+choke 8 2
+watch 11 6

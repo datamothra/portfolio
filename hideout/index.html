@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hideout · drew atz</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>hideout</h1>
+
+<figure class="hero">
+  <video src="../media/hideout/hero.mp4" poster="../media/hideout/hero.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/hideout/hero.jpg" alt="hideout">
+</figure>
+
+<p class="meta">turn-based tactics maps · plain javascript, one canvas · each map was changed after 160 simulated games</p>
+
+<h2>what it is</h2>
+<div class="text">
+  <p>Two sides of four units take turns on a grid with heights. A fighter hits next to it, an archer shoots further from higher up, and a runner is fast and weak. Hitting from above does more and hitting from below does less. Nothing is random.</p>
+  <p>Navy attacks and pink defends. Navy also wins by holding the marked tile for two of its turns.</p>
+  <p>The rules are kept this small so that the map is the whole game.</p>
+</div>
+
+<p class="links">
+  <a href="../play/hideout/index.html">play it in the browser</a>
+</p>
+
+<div class="text">
+  <p>Click a unit, then a tile to move it, then an enemy to attack. E ends the turn. 1, 2 and 3 choose the map.</p>
+</div>
+
+<h2>the maps</h2>
+<div class="text">
+  <p>Each map was played 160 times by two simple computer players, and then changed until the numbers matched what the map claims. The pictures show where the attacks happened, the ways to the marked tile in steps, and what pink's archer can reach.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-1.png" alt="the stairs. one ridge, one stair up it."></div>
+  <figcaption>the stairs. one ridge, one stair up it.</figcaption>
+</figure>
+
+<div class="text">
+  <p>Pink stands a fighter on the top of the stair and its archer on the edge of the cliff. A unit on the stair hits up for 2 and is hit back for 4.</p>
+  <p>The marked tile is on the ground at the foot of the stair, so pink cannot win by staying on the ridge. It has to come down for the tile, one unit at a time.</p>
+  <p>With the tile on the ridge navy won 17% of games. Then pink's units were jumping off the cliff and the fight happened on flat ground, so the tiles under the cliff became water. Now more than half of all damage comes from above.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-1-versions.png" alt="the stairs, every version with its numbers."></div>
+  <figcaption>the stairs, every version with its numbers.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-2.png" alt="the gate. a wall with one gap, and a long way round."></div>
+  <figcaption>the gate. a wall with one gap, and a long way round.</figcaption>
+</figure>
+
+<div class="text">
+  <p>Pink's fighters stand either side of the inside end of the gap, not in it. A unit that comes through has to stop between them.</p>
+  <p>With one fighter plugging a gap one tile deep, navy won 78%: its archer shot down the row through the gap and its fighters took the plug one at a time. The wall became two tiles thick and a wall tile went in behind the gap to block that shot.</p>
+  <p>The marked tile is in the far corner, so going round is a real way to win. Half of all attacks cross the three gate tiles, which are 3 of the 105 tiles a unit can stand on.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-2-versions.png" alt="the gate, every version with its numbers."></div>
+  <figcaption>the gate, every version with its numbers.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-3.png" alt="the hideout. both ideas in one place."></div>
+  <figcaption>the hideout. both ideas in one place.</figcaption>
+</figure>
+
+<div class="text">
+  <p>A walled yard, a tower for one archer, a gate on the near side and a door on the far side. The marked tile is at the foot of the tower.</p>
+  <p>The tower first stood the same distance from both ways in and covered both. It moved one tile toward the gate, so the far door is out of its reach and navy has a reason to go the long way. Navy comes through the gate in 86% of games and through the far door in 32%.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/hideout/map-3-versions.png" alt="the hideout, every version with its numbers."></div>
+  <figcaption>the hideout, every version with its numbers.</figcaption>
+</figure>
+
+<div class="pair">
+  <figure>
+    <img src="../media/hideout/shot-2-the-stairs-on-the-stair.jpg" alt="the stairs. a unit on the stair, under the fighter and the archer.">
+    <figcaption>the stairs. a unit on the stair, under the fighter and the archer.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/hideout/shot-5-the-hideout-tower.jpg" alt="the hideout. the archer on the tower. the heads are my drawing of a computer.">
+    <figcaption>the hideout. the archer on the tower. the heads are my drawing of a computer.</figcaption>
+  </figure>
+</div>
+
+<h2>the numbers</h2>
+<table class="facts">
+  <tr><th>the stairs</th><td>navy wins 45%, pink 55% · 52% of damage from above · 70% of attacks cross a stair tile</td></tr>
+  <tr><th>the gate</th><td>navy wins 56%, pink 44% · 51% of attacks cross a gate tile · the way round is used in 26% of games</td></tr>
+  <tr><th>the hideout</th><td>navy wins 46%, pink 54% · 28% of damage from above · the far door is used in 32% of games</td></tr>
+  <tr><th>games</th><td>160 a map: four pairings of two computer players, 40 starts each</td></tr>
+</table>
+
+<h2>how the maps are checked</h2>
+<div class="text">
+  <p>Two computer players, one that rushes and one that holds ground, play every pairing on every map from 40 slightly different starts. The simulation counts who won, how much damage came from above, how many attacks crossed a chokepoint tile and how often the marked tile decided the game.</p>
+  <p>When a map did not do what it claimed, the map was changed and the rules were left alone. Every earlier version is kept and can be replayed.</p>
+</div>
+
+<p class="nav">
+  <a href="../index.html">index</a>
+  <a href="../triad/index.html">next: triad</a>
+</p>
+</main>
+</body>
+</html>

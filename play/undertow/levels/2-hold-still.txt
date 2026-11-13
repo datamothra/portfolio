@@ -1,0 +1,11 @@
+name hold still
+; idea: The other character stops you, the same as a rock.
+; move: Pink waits in the top left corner. Navy slides up and stops under her, level with its home. Then pink goes home.
+; shape: There are no rocks. Navy's home is at the end of a row that nothing but pink can stop navy in.
+; wrong: Press up with navy first. Navy passes the row and stops in the corner pink needs.
+#######
+#.....#
+#....N#
+#n....#
+#P..p.#
+#######

@@ -1,0 +1,13 @@
+name send it through
+; idea: A crate goes through a whirlpool and is pushed by a current, the same as you.
+; move: Pink crosses first and waits at the end of the row. Navy hits the crate through the whirlpool. It stops against pink on the current, which pushes it down beside navy's home. Navy crosses from above and stops against it. Pink slides back through to her home.
+; shape: The left rock stops navy behind the crate. The right rock stops pink at the end of the crate's row. The current moves the crate out of that row so pink can slide back along it. The rock under the right whirlpool stops navy level with its home.
+; wrong: Navy can reach the crate in one move and hit it in the next. With nobody across, the crate slides to the far shore and stays there, and the way home from there is 21 moves. The dead end is different: slide back through the whirlpool while the crate is still in its row and it is knocked onto pink's home for good.
+##########
+#n..#....#
+#...#....#
+#Pc@#@.v.#
+#o..#.N.o#
+#...#o...#
+#p..#....#
+##########

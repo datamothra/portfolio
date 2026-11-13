@@ -1,0 +1,27 @@
+name the stairs
+teaches High ground hits harder and the climb costs a turn, so pink stands at the top of the one stair and comes down only for the marked tile at its foot.
+
+000000.33333
+000000.33333
+000000.33333
+000001.33333
+000001233333
+000001.33333
+000000.33333
+000000.33333
+000000.33333
+000000.33333
+
+navy fighter 1 3
+navy fighter 1 5
+navy archer 0 4
+navy runner 0 6
+pink fighter 7 4
+pink fighter 8 5
+pink archer 7 1
+pink runner 9 3
+mark 4 4
+choke 5 3
+choke 5 4
+choke 5 5
+choke 6 4

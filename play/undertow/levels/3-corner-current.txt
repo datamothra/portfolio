@@ -1,0 +1,11 @@
+name corner current
+; idea: A current pushes whoever stops on it one tile.
+; move: Navy stops in the corner on the current and is pushed down into the home row. Pink has to be waiting at the far end of that row.
+; shape: The current is in a corner so the shore stops navy on it. The home row has no rock, so only pink can stop navy on its home. Her quickest way to the end of that row is to stop under navy in the other corner, so in the shortest solution each one stops the other once.
+; wrong: Take the current first. Navy drops into the home row with nobody at the far end and slides past its home.
+########
+#....nv#
+#.N....#
+#......#
+#p....P#
+########

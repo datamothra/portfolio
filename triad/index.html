@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>triad · drew atz</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>triad</h1>
+
+<figure class="hero">
+  <video src="../media/triad/hero.mp4" poster="../media/triad/hero.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/triad/hero.jpg" alt="triad">
+</figure>
+
+<p class="meta">three-player chord game · unity 6, c#</p>
+
+<h2>what it is</h2>
+<div class="text">
+  <p>Three players stand on a circle of twelve note wedges, C at the top. The wedge a player stands in is their note, and the triangle between the three players is the chord.</p>
+  <p>A chart plays one chord at a time. A circle in the chord's colour closes in and meets the red line on the downbeat, and all three strike then. Major is gold, minor is blue, diminished is purple, augmented is red.</p>
+  <p>The only sound is the players' strikes. There is no backing track and no click, so a wrong note sounds wrong.</p>
+</div>
+
+<h2>the stages</h2>
+<div class="text">
+  <p>The game had a songbook and no taught order. Seven stages now come before the songs. Each is a short chart that teaches one move.</p>
+  <p>A chart checker set the order. For every chord change it works out which player should take which note so the three of them run the least, and how long the longest run takes. Each stage's hardest change is no easier than the one before, and each leaves the players less spare time.</p>
+</div>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-1.png" alt="nobody runs. the stage teaches the strike."></div>
+  <figcaption>nobody runs. the stage teaches the strike.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-2.png" alt="c major and a minor share two notes. only the player on g runs, and the triangle turns from gold to blue."></div>
+  <figcaption>c major and a minor share two notes. only the player on g runs, and the triangle turns from gold to blue.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-3.png" alt="two players run different distances at once. the third holds the note the chords share."></div>
+  <figcaption>two players run different distances at once. the third holds the note the chords share.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-4.png" alt="the augmented chord sits between c and f. its triangle has three equal sides."></div>
+  <figcaption>the augmented chord sits between c and f. its triangle has three equal sides.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-5.png" alt="two players run the same way together and the triangle goes narrow."></div>
+  <figcaption>two players run the same way together and the triangle goes narrow.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-6.png" alt="every change is a move from an earlier stage. the running passes between all three players, so nobody gets to be the one who stands still."></div>
+  <figcaption>every change is a move from an earlier stage. the running passes between all three players, so nobody gets to be the one who stands still.</figcaption>
+</figure>
+
+<figure class="map">
+  <div class="scroll"><img src="../media/triad/ring-stage-7.png" alt="a song from the songbook. f to g makes all three run at once, which no earlier stage asks for."></div>
+  <figcaption>a song from the songbook. f to g makes all three run at once, which no earlier stage asks for.</figcaption>
+</figure>
+
+<div class="pair">
+  <figure>
+    <img src="../media/triad/shot-4.jpg" alt="stage 6. a minor, struck on the downbeat.">
+    <figcaption>stage 6. a minor, struck on the downbeat.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/triad/shot-1.jpg" alt="stage 4. the augmented triangle.">
+    <figcaption>stage 4. the augmented triangle.</figcaption>
+  </figure>
+</div>
+
+<h2>measured</h2>
+<table class="facts">
+  <tr><th>running speed</th><td>6.46 units a second, measured in the game</td></tr>
+  <tr><th>two wedges round the ring</th><td>0.33 s on the inside lane</td></tr>
+  <tr><th>time each change allows</th><td>2.25 beats</td></tr>
+  <tr><th>longest run any stage or song needs</th><td>two wedges</td></tr>
+  <tr><th>fastest tempo every change can still be reached</th><td>405 bpm</td></tr>
+  <tr><th>tightest song in the songbook</th><td>120 bpm, 3.4 times slower than its limit</td></tr>
+</table>
+
+<h2>how the charts are checked</h2>
+<div class="text">
+  <p>Three bots play each chart through the same inputs the three players use, taking the notes the checker assigned them.</p>
+  <p>At the written tempos they hit 162 chords out of 162. At 0.9 times the checker's limit they hit 160 out of 160. At 1.3 times the limit they hit 57 out of 160, and 57 is the number the checker predicted.</p>
+  <p>The checker also caught a stage. The first draft of stage 4 used F augmented and the bots missed it every time: the game names an augmented chord by its lowest note, and player one sings an octave below the others. The stage now uses C augmented, where player one already stands. The game's judging was left as it was.</p>
+</div>
+
+<h2>what was added</h2>
+<div class="text">
+  <p>The ring, the movement, the chord judging, the scoring, the colours, the sound and the twelve songs are the original game.</p>
+  <p>The seven stages, the chart checker, the three bots and the ring diagrams are new. Nothing about how the game looks or plays was changed.</p>
+</div>
+
+<p class="nav">
+  <a href="../index.html">index</a>
+  <a href="../handoff/index.html">next: handoff</a>
+</p>
+</main>
+</body>
+</html>

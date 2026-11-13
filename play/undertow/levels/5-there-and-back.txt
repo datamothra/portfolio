@@ -1,0 +1,12 @@
+name there and back
+; idea: Enter one whirlpool and you leave the other, still sliding the same way.
+; move: Pink goes through to the far shore and stops under navy's home. Navy comes down from the corner and stops on her. Then pink slides back through to her own home.
+; shape: The shore down the middle makes the whirlpools the only way across. They are on the row under navy's home, so a slide through them ends where navy needs a stop. Navy goes through from above, so it comes out heading down and has to go round by the far corner to get above its home.
+; wrong: Pink's home is one tile above her. She is home after one move and it looks finished for her. She has to leave it.
+##########
+#...#....#
+#n..#...N#
+#P.@#@...#
+#p..#....#
+#...#....#
+##########

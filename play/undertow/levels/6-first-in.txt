@@ -1,0 +1,12 @@
+name first in
+; idea: A current beside a whirlpool feeds it. You come up on the other whirlpool and stay there.
+; move: Pink has to go in first. She waits on the whirlpool, which holds navy on the current behind her. When she slides to her home, navy comes up and stops against her.
+; shape: The room at the bottom left has no door but the whirlpool. The rock lines a slide up with the lane. The lane ends on the current, which pushes into the whirlpool. The tile above that whirlpool is the way out of the room: the rock stops you on it and one move left puts you back in the lane.
+; wrong: Navy is nearer and goes in first. It slides to the back of the room and stops on pink's home.
+##########
+#n......p#
+#........#
+#......o.#
+######..##
+#PN@##>@##
+##########

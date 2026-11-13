@@ -1,0 +1,10 @@
+name overshoot
+; idea: You slide until something stops you. A rock or the shore stops you.
+; move: Navy's home is one tile above it. Navy slides past it, so it goes round: left to the rock, up to the rock, right into the shore.
+; shape: The bottom left rock stops navy under the top rock. The top rock stops navy level with its home. The bottom left rock also stops pink on her home.
+; wrong: Press up. Navy passes its home and stops in the top corner.
+######
+#po..#
+#P..N#
+#o..n#
+######

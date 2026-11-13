@@ -1,0 +1,12 @@
+name catch
+; idea: A crate slides when you hit it and stays where it stops.
+; move: Pink is the catcher. Navy goes round the board to get behind the crate and hits it along the row. It stops against pink, one tile past navy's home, and navy slides in against it.
+; shape: The rock above pink is the stop that puts her back in the row if she leaves it. The left rock stops navy in line with the crate. The bottom rock turns pink up into her home, under navy.
+; wrong: Navy starts under the crate. Press up and the crate goes to the top shore and never comes back to the row. The level can still be solved from there without the crate, in 15 more moves.
+#########
+#.......#
+#.....o.#
+#.c.N.p.#
+#on.P...#
+#..o....#
+#########

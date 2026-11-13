@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>undertow · drew atz</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+<h1>undertow</h1>
+
+<figure class="hero">
+  <video src="../media/undertow/hero.mp4" poster="../media/undertow/hero.jpg" autoplay loop muted playsinline controls></video>
+  <img class="poster" src="../media/undertow/hero.jpg" alt="undertow">
+</figure>
+
+<p class="meta">two-character sliding puzzles · plain javascript, one canvas · every level is checked by a solver</p>
+
+<h2>what it is</h2>
+<div class="text">
+  <p>A character on water slides in a straight line until a rock, the shore or the other character stops it. The two are moved one at a time, by one player swapping or two taking turns, and both have to end on their own home.</p>
+  <p>It is turn-based. Nothing is timed. There are eight levels on boards no bigger than ten by eight.</p>
+</div>
+
+<p class="links">
+  <a href="../play/undertow/index.html">play it in the browser</a>
+</p>
+
+<div class="text">
+  <p>Arrow keys slide the active character. Space swaps. Z undoes. R restarts. N is the next level.</p>
+</div>
+
+<figure class="code">
+  <pre>name hold still
+; idea: The other character stops you, the same as a rock.
+; move: Pink waits in the top left corner. Navy slides up and stops under her.
+; wrong: Press up with navy first. Navy passes the row and stops in the corner pink needs.
+#######
+#.....#
+#....N#
+#n....#
+#P..p.#
+#######</pre>
+  <figcaption>level 2&#x27;s whole file. small letters are the two characters and capitals are their homes.</figcaption>
+</figure>
+
+<h2>the levels</h2>
+<div class="text">
+  <p>Level 1 needs no partner. Level 2 adds the partner as a stop and nothing else. After that each new piece gets one level alone and then one level with the pieces before it.</p>
+  <p>The maps show the shortest solution, numbered move by move.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/undertow/map-1.png" alt="you slide until something stops you. the home is one tile away and you have to go round to reach it.">
+    <figcaption>you slide until something stops you. the home is one tile away and you have to go round to reach it.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/undertow/map-2.png" alt="no rocks. the only thing that can stop navy in the right row is pink, waiting in the corner.">
+    <figcaption>no rocks. the only thing that can stop navy in the right row is pink, waiting in the corner.</figcaption>
+  </figure>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/undertow/map-3.png" alt="a current pushes whoever stops on it one tile. each character stops the other once.">
+    <figcaption>a current pushes whoever stops on it one tile. each character stops the other once.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/undertow/map-4.png" alt="a current waits while the next tile is taken. pink holds navy on it, then lets go.">
+    <figcaption>a current waits while the next tile is taken. pink holds navy on it, then lets go.</figcaption>
+  </figure>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/undertow/map-5.png" alt="the whirlpools are the only way across. pink is one move from home and has to cross and come back.">
+    <figcaption>the whirlpools are the only way across. pink is one move from home and has to cross and come back.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/undertow/map-6.png" alt="navy is nearer and wants to go first. pink has to.">
+    <figcaption>navy is nearer and wants to go first. pink has to.</figcaption>
+  </figure>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/undertow/map-7.png" alt="a crate slides when hit and then stays. pink stands in its row to catch it. the first key you want to press loses it.">
+    <figcaption>a crate slides when hit and then stays. pink stands in its row to catch it. the first key you want to press loses it.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/undertow/map-8.png" alt="the crate goes through the whirlpool, stops against pink on a current, and is pushed into place.">
+    <figcaption>the crate goes through the whirlpool, stops against pink on a current, and is pushed into place.</figcaption>
+  </figure>
+</div>
+
+<figure class="figure">
+  <img src="../media/undertow/difficulty.png" alt="what the solver measured, level by level.">
+  <figcaption>what the solver measured, level by level.</figcaption>
+</figure>
+
+<h2>how the levels are checked</h2>
+<div class="text">
+  <p>A solver searches every position a level can reach: where both characters and each crate are. It reports the shortest solution, how many positions can be reached, and how many of those are dead, with no way home.</p>
+  <p>The co-op test is a second solve in which a character stops nothing. From level 2 on, every level is unsolvable that way. The solver also takes each kind of piece out and solves again, to show the piece is needed.</p>
+  <p>Dead positions only exist in the two crate levels, so undo is always there.</p>
+</div>
+
+<h2>levels the solver sent back</h2>
+<div class="text">
+  <p>Level 2 first had a rock to park pink against. The solver found 192 dead positions out of 214 on a board with no crate. It was redrawn with no rocks and has none.</p>
+  <p>Level 3 first had the current beside navy's home. The solver found a four move solution in which pink never helps, because the shore already stops navy on the current. The current moved to a corner and the home moved into a row with nothing to stop on.</p>
+  <p>Level 7 was first open water. The solver found a solution without the crate only five moves longer, so the crate did not matter. The homes were moved apart so the crate has to be caught.</p>
+</div>
+
+<div class="pair">
+  <figure>
+    <img src="../media/undertow/shot-3.jpg" alt="level 4. the numbers are my handwriting and the characters are my drawing of a computer.">
+    <figcaption>level 4. the numbers are my handwriting and the characters are my drawing of a computer.</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/undertow/shot-5.jpg" alt="level 7. navy has hit the crate along the row and pink has caught it.">
+    <figcaption>level 7. navy has hit the crate along the row and pink has caught it.</figcaption>
+  </figure>
+</div>
+
+<p class="nav">
+  <a href="../index.html">index</a>
+  <a href="../static/index.html">next: static</a>
+</p>
+</main>
+</body>
+</html>

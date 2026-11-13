@@ -1,0 +1,11 @@
+name let go
+; idea: A current keeps pushing. If the next tile is taken it waits, and pushes when the tile is free.
+; move: Pink waits on navy's home. Navy stops against her, on the current. When pink leaves, the current carries navy home. Then navy comes down to stop pink on her home and goes back.
+; shape: The second current, in the corner past navy's home, throws out whatever stops behind the home. The rock under pink's start stops her on the way down and later stops navy next to her home. The left rock turns pink round.
+; wrong: Slide navy along the top row. It passes its home, stops on the corner current and is pushed out of the row.
+########
+#n..>Nv#
+#......#
+#o..Pp.#
+#....o.#
+########

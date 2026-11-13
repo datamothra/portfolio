@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>undertow</title>
+<style>
+  @font-face { font-family: "DrewHandDigits"; src: url("assets/DrewHandDigits.otf") format("opentype"); }
+  html, body { margin: 0; height: 100%; background: #FFF7F5; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; touch-action: none; }
+  /* makes the browser fetch the digits font before the first frame */
+  #warm { position: absolute; left: -999px; font: 20px "DrewHandDigits"; }
+</style>
+</head>
+<body>
+<span id="warm">0123456789</span>
+<canvas id="screen"></canvas>
+<script src="undertow.js"></script>
+<script src="levels.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
